@@ -49,7 +49,7 @@ const transforms: transforms = {
   },
 
   header: ({ data }) => {
-    return `<h${data.level}>${data.text}</h${data.level}>`;
+    return `<h${data.level} style="font-family:AvertaStd,Noto Sans TC,-apple-system,sans-serif;">${data.text}</h${data.level}>`;
   },
 
   paragraph: ({ data }) => {
@@ -58,7 +58,7 @@ const transforms: transforms = {
     if (typeof paragraphAlign !== 'undefined' && alignType.includes(paragraphAlign)) {
       return `<p style="text-align:${paragraphAlign};">${data.text}</p>`;
     } else {
-      return `<p>${data.text}</p>`
+      return `<p style="font-family:AvertaStd,Noto Sans TC,-apple-system,sans-serif;font-size:15px;">${data.text}</p>`
     }
   },
 
@@ -74,7 +74,7 @@ const transforms: transforms = {
         if (item.content) return `<li> ${item.content} </li>` + list;
       });
 
-      return `<${listStyle}>${list.join("")}</${listStyle}>`;
+      return `<${listStyle} style="font-family:AvertaStd,Noto Sans TC,-apple-system,sans-serif;font-size:15px;">${list.join("")}</${listStyle}>`;
     };
 
     return recursor(data.items, listStyle);
